@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matt Lorber | Gallery</title>
+    <link rel="stylesheet" href="./assets/style.css"/>
+</head>
+
+<body id="body">
+
+    <!-- CONTROLS -->
+    <div id="buttons">
+        <button id="save">save</button>
+        <select id="sel">
+            <option>JPG</option>
+            <option>PNG</option>
+            <option>EPS</option>
+            <option>WEBP</option>
+        </select>
+    </div>
+
+    <!-- CANVASES -->
+    <canvas id="c"></canvas>
+    <canvas id="mc"></canvas>
+
+    <!-- CHOOSE ALGORITHMIC ART -->
+    <div id="chooseArt">
+        <button>disko</button>
+        <button>nooks</button>
+        <button>entropy</button>
+        <button>lines</button>
+        <button>pack</button>
+        <button>neighbors</button>
+        <button>paths</button>
+        <button>molnar</button>
+        <button>bebebe</button>
+        <button>boxy</button>
+        <button>grid</button>
+        <button>idk</button>
+    </div>
+</body>
+<script type="module" src="./assets/scripts/genart.js"></script>
+<script>
+    // DOWNLOAD IMAGE
+    document.getElementById("save").addEventListener("click", function () {
+        let type = document.getElementById("sel").value;
+        let ele = document.createElement("a");
+        document.body.appendChild(ele);
+        ele.download = `mlorber_algorithmic_art.${type.toLowerCase()}`;
+        ele.href = document.getElementById("c").toDataURL(`image/${type.toLowerCase()};base64`);
+        ele.click();
+        ele.remove();
+    });
+
+</script>
+
+</html>
