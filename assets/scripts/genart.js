@@ -1,7 +1,6 @@
 import { disko } from "./disko.js";
 import { nooks } from "./nooks.js";
 import { entropy } from "./entropy.js";
-import { idk } from "./idk.js";
 import { lines } from "./lines.js";
 import { pack } from "./pack.js";
 import { neighbors } from "./neighbors.js";
@@ -15,8 +14,6 @@ import { grid } from "./grid.js";
 	document.getElementById("chooseArt").querySelectorAll(":scope > button").forEach(e => e.addEventListener("click", function () {
 
 		switch (this.innerText) {
-			case ("idk"): idk(); break;
-			case ("silk"): silk(); break;
 			case ("disko"): disko(); break;
 			case ("nooks"): nooks(); break;
 			case ("entropy"): entropy(); break;

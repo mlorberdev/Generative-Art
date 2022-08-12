@@ -1,82 +1,99 @@
 import { palettes } from "./palettes.js";
 export function pack() {
 
-	// variables
-	const rn = (nn) => { return Math.floor(Math.random() * nn); }
+	const rn = (z) => { return z === undefined ? Math.random() : Math.floor(Math.random() * z); }
 	const palette = palettes[rn(palettes.length)];
-	const num = rn(10000);
+	const tau = 2 * Math.PI;
 	const canvas = document.getElementById("c");
 	const ctx = canvas.getContext("2d");
+	let ww = .8 * innerHeight;
+	const dx = .15 * ww;
+	const dpr = window.devicePixelRatio || 1;
+	canvas.width = canvas.height = ww * dpr;
+	ctx.scale(dpr, dpr);
 	const circles = [];
-	const tau = 2 * Math.PI;
 	const min = 2;
-	const max = 100;
-	const N = 600;
-	const A = 20;
-	let z = .8 * innerHeight; // canvas size
-	const dx = .15 * z;
-
-	const pr = window.devicePixelRatio;
-	canvas.width = z * pr;
-	canvas.height = z * pr;
-	ctx.scale(pr, pr);
-
+	const max = 120;
+	const N = 500;
+	const A = 500;
+	const T = rn(2) // type, circle(0) or square(1)
 	ctx.fillStyle = "white";
-	ctx.fillRect(0, 0, z, z);
+	ctx.fillRect(0, 0, ww, ww);
+	let variant = "";
+	T === 0 ? variant = "Circle" : variant = "Square";
 	ctx.font = "italic 400 8px 'Times New Roman'";
 	ctx.fillStyle = "#000000bb";
-	ctx.fillText(`Pack № ${num} ${new Date().toDateString()}`, 5, z - 7);
-	ctx.globalAlpha = .8;
+	const num = rn(10000);
+	ctx.fillText(`Pack ${variant} Variant № ${num} ${new Date().toDateString()}`, 5, ww - 7);
 	ctx.lineWidth = 1;
-	ctx.translate(dx, dx);
-	z -= dx * 2; // z is now drawable dim on canvas
+	ctx.strokeStyle = "#000000bb";
+	ctx.globalAlpha = .8;
+	ww -= dx * 2;
+	T === 0 ? ctx.translate(canvas.width / 2, canvas.width / 2) : ctx.translate(dx, dx);
 
 	function draw() {
 		let c;
-		let draw = false;
+		let int = true;
+		for (let i = 0; i < A; i++) {
+			let aa = rn() * tau;
+			let rr = rn() * ww / 2;
+			T === 0 ? c = {
+				x: Math.floor(rr * Math.cos(aa)),
+				y: Math.floor(rr * Math.sin(aa)),
+				r: rr,
+				mr: min
+			} : c = {
+				x: rn(ww),
+				y: rn(ww),
+				r: rr,
+				mr: min
+			};
 
-		for (let a = 0; a < A; a++) {
-			c = {	x: rn(z),	y: rn(z),	r: min};
-
-			if (intersect(c)) continue;
-			else {
-				draw = true;
+			if (intersect(c)) {
+				continue;
+			} else {
+				int = false;
 				break;
 			}
 		}
 
-		if (!draw) return;
+		if (int) return
 
-		for (let rz = min; rz < max; rz++) {
-			c.r = rz;
+		for (let i = min; i < max; i++) {
+			c.mr = i;
 			if (intersect(c)) {
-				c.r--;
+				c.mr--;
 				break;
 			}
 		}
 
 		circles.push(c);
 		ctx.beginPath();
-		ctx.arc(c.x, c.y, c.r, 0, tau);
-		ctx.fillStyle = palette[rn(5)];
+		ctx.arc(c.x, c.y, c.mr, 0, tau);
 		ctx.stroke();
+		ctx.fillStyle = palette[rn(5)];
 		ctx.fill();
 	}
 
-	function intersect(circle) {
+	function intersect(c) {
 		for (let i = 0; i < circles.length; i++) {
 			let cc = circles[i];
-			let a = circle.r + cc.r;
-			let x = circle.x - cc.x;
-			let y = circle.y - cc.y;
+			let a = c.mr + cc.mr;
+			let x = c.x - cc.x;
+			let y = c.y - cc.y;
 
-			if (a >= Math.hypot(x,y)) {
+			if (a >= Math.hypot(x, y)) {
 				return true;
 			}
 		}
-		
-		if (circle.x + circle.r >= z || circle.x - circle.r <= 0 || circle.y + circle.r >= z || circle.y - circle.r <= 0) return true;
-		else return false;
+
+		if (T === 0) {
+			if (Math.abs(c.r + c.mr) > ww / 2) return true;
+		} else {
+			if (c.x + c.mr >= ww || c.x - c.mr <= 0 || c.y + c.mr >= ww || c.y - c.mr <= 0) return true;
+		}
+
+		return false;
 	}
 
 	for (let i = 0; i < N; i++) draw();
