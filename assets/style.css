@@ -42,11 +42,13 @@ button {
 	font-size: 1.1rem;
 }
 
-button:hover {
+button:hover,a:hover {
 	background-color: #222222bb;
 	cursor: none;
 }
-
+#license,
+#license:visited {
+position:fixed;bottom:0;right:0;padding:10px;color:#00000066;font-size:.8rem;text-decoration:none;}
 #mc {
 	display: none;
 }

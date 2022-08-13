@@ -1,8 +1,10 @@
 # Generative-Art
 
-This is a collection of past vanilla JavaScript generative art projects, duplicating or elaborating on some of the first generation artists' work by analyzing & synthesizing their apparent algorithms. No libraries or outside sources were used or consulted while undertaking this project. This gallery will generate a random work each time one of the script buttons is clicked.
+This is a collection of generative art projects which duplicate or elaborate on some first generation artists' work. Coding is done in JavaScript ES2022 modules; no sources were used or consulted while undertaking this project, just guesswork. 
 
-[Homepage](https://mlorberdev-generative-art.netlify.app/)
+## Use
+
+The project is deployed at [https://mlorberdev-generative-art.netlify.app/](https://mlorberdev-generative-art.netlify.app/). Just click a button at the bottom to run its corresponding program; select a download type from the dropdown at the top-left and click save.
 
 ## Screenshots
 
@@ -18,4 +20,4 @@ This is a collection of past vanilla JavaScript generative art projects, duplica
 ![ss5](./assets/images/ss5.webp)
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+2022 [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) attribution required.
