@@ -9,12 +9,11 @@ import { molnar } from "./molnar.js";
 import { bebebe } from "./bebebe.js";
 import { boxy } from "./boxy.js";
 import { grid } from "./grid.js";
-import { patrn } from "./patrn.js";
 
 !(function () {
 	document.getElementById("chooseArt").querySelectorAll(":scope > button").forEach(e => e.addEventListener("click", function () {
 
-		switch (this.innerText) {
+		switch (this.innerText.toLowerCase()) {
 			case ("disko"): disko(); break;
 			case ("nooks"): nooks(); break;
 			case ("entropy"): entropy(); break;
@@ -26,7 +25,6 @@ import { patrn } from "./patrn.js";
 			case ("bebebe"): bebebe(); break;
 			case ("boxy"): boxy(); break;
 			case ("grid"): grid(); break;
-			case ("patrn"): patrn(); break;
 		}
 	}));
 })();

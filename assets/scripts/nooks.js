@@ -11,7 +11,7 @@ export function nooks() {
 
 	// Setup Canvas
 	canvas.width = canvas.height = ww;
-	ctx.fillStyle = "whitesmoke";
+	ctx.fillStyle = "white";
 	ctx.fillRect(0, 0, ww, ww);
 	ctx.fillStyle = "#00000022";
 	ctx.font = "italic 400 8px 'Times New Roman'";

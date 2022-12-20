@@ -1,5 +1,5 @@
 * {
-	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	font-family: 'Arial Narrow Bold', sans-serif;
 	cursor: url("data:image/svg+xml,%3Csvg width='10mm' height='10mm' viewBox='0 0 22.2 22.2' xmlns='http://www.w3.org/2000/svg'%3E%3Cdefs%3E%3Cfilter id='filter1834' x='-.24' y='-.24' width='1.48' height='1.48' style='color-interpolation-filters:sRGB'%3E%3CfeGaussianBlur result='blur' stdDeviation='1.5 1.5'/%3E%3C/filter%3E%3C/defs%3E%3Cg transform='translate(-25.6,-85.1)'%3E%3Ccircle cx='36.7' cy='96.2' r='7.5' style='fill:%23222;filter:url(%23filter1834);opacity:.4;stroke-linecap:round;stroke-linejoin:round;stroke-width:.197'/%3E%3C/g%3E%3C/svg%3E") 5 5, default;
 }
 
@@ -13,38 +13,47 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-color: #000000cc;
+	background-image: linear-gradient(to right, red, yellow);
 }
 
 #chooseArt {
 	position: fixed;
-	bottom: 15px;
-	left: 15px;
-	color: white;
+	top:15px;
+	color: #222;
+}
+
+#c {
+	box-shadow: 5px 5px 10px #222;
 }
 
 .art,
 select {
 	padding: 10px;
 }
+select {
+	border-radius:1.5rem;
+	background-color: transparent;
+	border:none;
+	outline:none;
+}
 
 #buttons {
 	position: fixed;
-	top: 15px;
+	bottom: 15px;
 	left: 15px;
 }
 
 button {
 	background: none;
 	border: none;
-	color: white;
+	border-radius:1.4rem;
 	padding: 10px 20px;
-	font-size: 1.1rem;
+	font-size: .7rem;
+	text-transform: uppercase;
 }
 
 button:hover,a:hover {
-	background-color: #222222bb;
-	cursor: none;
+	background-color: #bbb;
 }
 #license,
 #license:visited {

@@ -1,6 +1,9 @@
+import { palettes } from "./palettes.js";
 export function molnar() {
 
 	// Variables
+	const rn = (z) => { return Math.floor(Math.random() * z); }
+	const hues = palettes[rn(palettes.length)];
 	const canvas = document.getElementById("c");
 	const ctx = canvas.getContext("2d");
 	const w = canvas.width = canvas.height = .8 * Math.min(innerWidth, innerHeight);
@@ -18,10 +21,12 @@ export function molnar() {
 		// Setup
 		function init() {
 			ctx.lineWidth = .3;
-			ctx.fillStyle = "white"; // canvas bg
+			ctx.fillStyle = hues[4]; // canvas bg
+			ctx.opacity = .3;
 			ctx.fillRect(0, 0, w, w);
+			ctx.opacity = 1;
 			ctx.font = "italic 400 8px 'Times New Roman'";
-			ctx.fillStyle = "#00000088";
+			ctx.fillStyle = hues[0];
 			ctx.fillText(`Molnar № ${num} ${new Date().toDateString()}`, 5, w - 7);
 			ctx.translate(dx, dx);
 		}
@@ -32,6 +37,7 @@ export function molnar() {
 				ctx.save();
 				ctx.translate(i * u, j * u);
 				let z = 0.95 * u; // radius for unit
+				ctx.strokeStyle = hues[rn(4)];
 				for (let k = 0; k < v; k++) {
 					ctx.beginPath();
 					ctx.moveTo(i - z / 2 + rg(), j - z / 2 + rg());

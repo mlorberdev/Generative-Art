@@ -13,7 +13,7 @@ export function pack() {
 	ctx.scale(dpr, dpr);
 	const circles = [];
 	const min = 2;
-	const max = 120;
+	const max = 60;
 	const N = 500;
 	const A = 500;
 	const T = rn(2) // type, circle(0) or square(1)

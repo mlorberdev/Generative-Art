@@ -1,6 +1,8 @@
+import { palettes } from "./palettes.js";
 export function neighbors() {
 	// Variables
 	const rn = (z) => { return Math.floor(Math.random() * z); }
+	const hues = palettes[Math.floor(Math.random() * palettes.length)];
 	const canvas = document.getElementById("c");
 	const ctx = canvas.getContext("2d");
 	const ww = canvas.width = canvas.height = .8 * Math.min(innerWidth, innerHeight);
@@ -21,14 +23,15 @@ export function neighbors() {
 	// Setup Canvas
 	ctx.lineWidth = .2;
 	ctx.lineCap = ctx.lineJoin = "round";
-	ctx.fillStyle = "white";
+	ctx.fillStyle = hues[4];
 	ctx.strokeStyle = "#00000022";
 	ctx.fillRect(0, 0, ww, ww); // fill canvas bg
 	const num = rn(10000);
 	ctx.font = "italic 400 8px 'Times New Roman'";
-	ctx.fillStyle = "#000000bb";
+	ctx.fillStyle = hues[0];
 	ctx.fillText(`Neighbors № ${num} ${new Date().toDateString()}`, 5, canvas.width - 7);
 	ctx.translate(bd - g / 2, bd - g / 2); // move ctx to start drawing inside planned border
+	ctx.opacity = .2;
 
 	// Draw
 	for (let p = 0; p < U; p++) for (let q = 0; q < U; q++) {
@@ -37,6 +40,8 @@ export function neighbors() {
 		for (let i = 0; i < N; i++) n.push({ x: rn(w - g), y: rn(w - g) });
 		for (let i = 0; i < N; i++) for (let j = 0; j < N; j++) {
 			if (Math.abs(n[i].x - n[j].x) < d && Math.abs(n[i].y - n[j].y) < d) {
+
+				ctx.strokeStyle = hues[rn(hues.length) - 1] + "44";
 				ctx.beginPath();
 				ctx.moveTo(n[i].x, n[i].y);
 				ctx.lineTo(n[j].x, n[j].y);
