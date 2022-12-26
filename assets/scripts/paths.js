@@ -1,17 +1,15 @@
-import { palettes } from "./palettes.js";
-export function paths() {
+export function paths(hues) {
 
 	// Variables
 	const canvas = document.getElementById("c");
 	const ctx = canvas.getContext("2d");
 	const w = canvas.width = canvas.height = .8 * Math.min(innerWidth, innerHeight);
-	const N = 20; // number of units on canvas is N x N
+	const N = 8; // number of units on canvas is N x N
 	const u = .55 * w / N; // unit size
 	const g = .1 * u; // creates a gap between units (e.g. g = .1 makes a .1*u gap, as the translate is 1.1*u)
 	const dx = .2 * w - g; // canvas border width
 	const rn = (z) => { return Math.floor(Math.random() * z) };
 	const num = rn(10000);
-	const palette = palettes[rn(palettes.length)];
 	const nodes = [
 		[0, 0], [u / 3, 0], [2 * u / 3, 0], [u, 0],
 		[0, u / 3], [u / 3, u / 3], [2 * u / 3, u / 3], [u, u / 3],
@@ -32,8 +30,7 @@ export function paths() {
 		ctx.fillRect(0, 0, w, w); // fill canvas bg
 		ctx.font = "italic 400 8px 'Times New Roman'";
 		ctx.fillStyle = "#000000bb";
-		ctx.fillText(`Paths № ${num} ${palette.toString()} ${new Date().toDateString()}`, 5, w - 7);
-		ctx.fillStyle = "#00000033";
+		ctx.fillText(`Paths № ${num} ${new Date().toDateString()}`, 5, w - 7);
 		ctx.translate(dx, dx); // move ctx to start drawing inside planned border
 	}
 
@@ -41,11 +38,11 @@ export function paths() {
 	function draw() {
 		for (let i = 0; i < N; i++) for (let j = 0; j < N; j++) {
 			nodes.sort((a, b) => .5 - Math.random()); // shuffle nodes
-			palette.sort((a, b) => .5 - Math.random()); // shuffle palette
+			hues.sort((a, b) => .5 - Math.random()); // shuffle palette
 			ctx.save();
 			ctx.translate(i * (u + g), j * (u + g));
-			ctx.fillStyle = palette[0];
-			ctx.strokeStyle = palette[1];
+			ctx.fillStyle = hues[0];
+			ctx.strokeStyle = hues[1];
 			ctx.fillRect(-g / 2, -g / 2, u + g, u + g);
 			ctx.beginPath();
 			ctx.moveTo(nodes[0][0], nodes[0][1]);

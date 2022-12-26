@@ -1,9 +1,7 @@
-import { palettes } from "./palettes.js";
-export function grid() {
+export function grid(hues) {
 
 		const rn = (n) => { return Math.floor(Math.random() * n); }
 		const num = rn(10000); // canvas run number, for title & save
-		const hues = palettes[rn(palettes.length)];
 		const N = 8; // subdivisions of canvas (N x N grid); change to make grid more/less dense
 
 		// Setup Canvas & Drawing Context
@@ -13,7 +11,7 @@ export function grid() {
 		const w = .7 * ww; // give the canvas a border on the bottom & right
 		const dx = .15 * ww; // give the canvas a border on the top & left
 		const u = w / N; // subunits (main canvas NxN) dimension
-		const main_bg = "#fff";
+		const main_bg = "white";
 		ctx.fillStyle = main_bg; // canvas background color
 		ctx.fillRect(0, 0, ww, ww); // apply bg color
 
@@ -47,7 +45,7 @@ export function grid() {
 			ctx.fillRect(0, ww - dx, ww, ww); // apply bg color
 			ctx.fillRect(ww - dx, 0, ww, ww); // apply bg color
 			ctx.font = "italic 400 8px 'Times New Roman'";
-			ctx.fillStyle = "#000000bb";
+			ctx.fillStyle = "#00000088";
 			ctx.fillText(`Grid № ${num} ${hues.toString()} ${new Date().toDateString()}`, 5, ww - 5);
 		}
 

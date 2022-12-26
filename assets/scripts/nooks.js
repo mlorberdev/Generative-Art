@@ -3,7 +3,6 @@ export function nooks() {
 	const canvas = document.getElementById("c");
 	const ctx = canvas.getContext("2d");
 	const ww = Math.floor(.8 * innerHeight);
-	let st, et;
 
 	// Random
 	const rn = (a, b) => { return Math.floor(Math.random() * (b - a)) + a; }
@@ -11,9 +10,9 @@ export function nooks() {
 
 	// Setup Canvas
 	canvas.width = canvas.height = ww;
-	ctx.fillStyle = "white";
+	ctx.fillStyle = hues[0];
 	ctx.fillRect(0, 0, ww, ww);
-	ctx.fillStyle = "#00000022";
+	ctx.fillStyle = hues[1];
 	ctx.font = "italic 400 8px 'Times New Roman'";
 	ctx.translate(ww / 2, ww / 2);
 	ctx.save();
@@ -21,7 +20,6 @@ export function nooks() {
 	ctx.scale(.5, .5);
 
 	void function main() {
-		st = new Date(); // start time
 		const A1 = rn(50, 150);
 		const A2 = rn(50, 400);
 		const A3 = rn(50, 150);
@@ -49,9 +47,7 @@ export function nooks() {
 				1, 1
 			)
 		}
-		et = new Date() - st; // elapsed time
 		ctx.restore();
-		ctx.fillStyle = "#00000088";
-		ctx.fillText(`Nooks № ${num}: ${st.toLocaleString()}, t=${ti}..${tf}, step ${ts}, ${et}ms ( ${A1}sin(3${f1} + ${p1}) * exp(-${d1}t) + ${A2} * sin(${f2}t + ${p2}) * exp(-${d2}t), ${A3}cos(${f3}t + ${p3}) * exp(-${d3}t) + ${A4} * cos(2${f4} + ${p4}) * exp(-${d4}t) )`, -ww / 2 + 14, ww / 2 - 14);
+		ctx.fillText(`Nooks № ${num}: ${new Date().toLocaleString()}, t=${ti}..${tf}, step ${ts}, ( ${A1}sin(3${f1} + ${p1}) * exp(-${d1}t) + ${A2} * sin(${f2}t + ${p2}) * exp(-${d2}t), ${A3}cos(${f3}t + ${p3}) * exp(-${d3}t) + ${A4} * cos(2${f4} + ${p4}) * exp(-${d4}t) )`, -ww / 2 + 14, ww / 2 - 14);
 	}();
 }

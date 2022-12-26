@@ -1,12 +1,10 @@
-import { palettes } from "./palettes.js";
-export function boxy() {
+export function boxy(hues) {
 
 	// Utility Functions
 	const rn = (z) => { return Math.floor(Math.random() * z); }
 
 	// Variables
 	const num = rn(10000); // canvas number & save number
-	let hues = palettes[Math.floor(Math.random() * palettes.length - 1)]; // choose a palette
 	const N = 9; // subdivisions of canvas (N x N grid); change to make grid more/less dense
 	const canvas = document.getElementById("c");
 	const ww = canvas.width = canvas.height = .8 * Math.min(innerWidth, innerHeight);
@@ -50,7 +48,7 @@ export function boxy() {
 	// Fill Cell Foreground Units
 	async function cell_fg() {
 		const n = rn(2) === 0 ? 4 : 6; // subunits, 4 or 6
-		const sf = n === 4 ? .22 : .146; // scale factor
+		const sf = n === 4 ? .2 : .14; // scale factor
 		ctx.save();
 		switch (rn(4)) {
 			case 0: break;

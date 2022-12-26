@@ -1,5 +1,4 @@
-import { palettes } from "./palettes.js";
-export function entropy() {
+export function entropy(hues) {
     // Variables
     const M = 24;
     const N = 12;
@@ -27,8 +26,6 @@ export function entropy() {
     ctx.rotate(-Math.PI/2);
     ctx.fillText(`Entropy № ${num}: ${new Date().toDateString()}`, 50,50);
     ctx.restore();
-    const palette = palettes[rn(palettes.length)];
-    let st, et; // start time, elapsed time
 
     // Setup Canvas
     function setup() {
@@ -37,7 +34,7 @@ export function entropy() {
         ctx.translate(dx + diff, dx + diff);
     }
 
-    async function square() {
+    async function draw() {
         let m = 0, n = 0;
         for (let i = 0; i < M / 2; i++) {
             for (let j = 0; j < N; j++) {
@@ -49,7 +46,7 @@ export function entropy() {
                 ctx.translate(-dim / 2 * i * Math.random() * .05, -dim / 2 * i * Math.random() * .05);
                 ctx.strokeRect(0, 0, dim, dim);
                 ctx.globalAlpha = .8;
-                ctx.fillStyle = palette[rn(5)];
+                ctx.fillStyle = hues[rn(5)];
                 ctx.fillRect(0,0,dim,dim);
                 ctx.globalAlpha = 1;
                 ctx.restore();
@@ -59,12 +56,11 @@ export function entropy() {
     }
 
     void function main() {
-        st = new Date(); // start time
         setup();
-        square();
+        draw();
         ctx.translate(0,0);
         ctx.rotate(Math.PI);
         ctx.translate(-ww + 2 * dx + diff, -hh + 1.8 * dx + diff);
-        square();
+        draw();
     }();
 }

@@ -13,13 +13,11 @@ export function bebebe(hues) {
 	ctx.lineWidth = 3;
 	ctx.lineJoin = "round";
 	ctx.lineCap = "round";
-	let rh = rn(5);
-	ctx.fillStyle = hues[rh];
-	hues.splice(rh, 1);
+	ctx.fillStyle = hues[0];
 	ctx.fillRect(0, 0, tw, tw);
 	ctx.font = "italic 400 8px 'Times New Roman'";
 	ctx.globalCompositeOperation = "lighter";
-	ctx.fillText(`bebebe № ${num} ${hues.toString()} ${new Date().toDateString()}`, 5, tw - 5);
+	ctx.fillText(`bebebe № ${num} ${new Date().toDateString()}`, 5, tw - 5);
 	ctx.globalCompositeOperation = "source-over";
 
 	// Translate Contexts
@@ -37,11 +35,11 @@ export function bebebe(hues) {
 			default: break;
 		}
 		function dot(r) {
-			ctx.fillStyle = ctx.strokeStyle = hues[rn(4)];
+			ctx.fillStyle = ctx.strokeStyle = hues[rn(4)+1];
 			ctx.beginPath(); ctx.arc(d / 2, d / 2, r, 0, Math.PI * 2); ctx.fill();
 		}
 		ctx.restore();
-		ctx.fillStyle = ctx.strokeStyle = hues[rn(4)];
+		ctx.fillStyle = ctx.strokeStyle = hues[rn(4)+1];
 		ctx.save();
 		ctx.translate(d * i + d / 2, d * j + d / 2);
 		ctx.rotate(rn(4) * Math.PI / 2);

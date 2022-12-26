@@ -1,10 +1,10 @@
 # Generative-Art
 
-This is a collection of generative art projects which duplicate or elaborate on some first generation artists' work. Coding is done in JavaScript ES2022 modules; no sources were used or consulted while undertaking this project, just guesswork. 
+This is a collection of generative art projects coded in JavaScript ES2022 modules as an exercise. Inspiration for each piece comes from some of the first-gen artists working in this medium; and, the coding is how I imagine they could have done it with modern tools.
 
 ## Use
 
-The project is deployed at [https://mlorberdev-generative-art.netlify.app/](https://mlorberdev-generative-art.netlify.app/). Just click a button at the bottom to run its corresponding program; select a download type from the dropdown at the top-left and click save.
+The project is deployed at [https://mlorberdev-generative-art.netlify.app/](https://mlorberdev-generative-art.netlify.app/). Just click a button at the top to run the corresponding program; lock in a palette if you like; select a download type from the dropdown at the top-left and click save.
 
 ## Screenshots
 

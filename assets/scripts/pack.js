@@ -8,9 +8,7 @@ export function pack() {
 	const ctx = canvas.getContext("2d");
 	let ww = .8 * innerHeight;
 	const dx = .15 * ww;
-	const dpr = window.devicePixelRatio || 1;
-	canvas.width = canvas.height = ww * dpr;
-	ctx.scale(dpr, dpr);
+	canvas.width = canvas.height = ww;
 	const circles = [];
 	const min = 2;
 	const max = 60;
