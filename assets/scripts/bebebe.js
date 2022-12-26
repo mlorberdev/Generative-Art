@@ -35,11 +35,13 @@ export function bebebe(hues) {
 			default: break;
 		}
 		function dot(r) {
-			ctx.fillStyle = ctx.strokeStyle = hues[rn(4)+1];
+			let r1 = rn(4) + 1;
+			ctx.fillStyle = ctx.strokeStyle = hues[r1];
 			ctx.beginPath(); ctx.arc(d / 2, d / 2, r, 0, Math.PI * 2); ctx.fill();
 		}
 		ctx.restore();
-		ctx.fillStyle = ctx.strokeStyle = hues[rn(4)+1];
+		let r2 = rn(4) + 1;
+		ctx.fillStyle = ctx.strokeStyle = hues[r2];
 		ctx.save();
 		ctx.translate(d * i + d / 2, d * j + d / 2);
 		ctx.rotate(rn(4) * Math.PI / 2);
