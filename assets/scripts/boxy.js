@@ -19,6 +19,11 @@ export function boxy(hues) {
 	ctx.fillRect(0, 0, ww, ww);
 	ctx.font = "italic 400 8px 'Times New Roman'";
 	ctx.fillStyle = "#000000bb";
+	if (innerWidth < 1024 || innerHeight < 768) {
+		ctx.font = "italic 400 12px 'Times New Roman'";
+		ctx.fillText('Boxy does not work on mobile at this time', ww/8, ww/2);
+		return;
+	}
 	ctx.fillText(`Boxy № ${num} ${hues.toString()} ${new Date().toDateString()}`, 5, ww - 5);
 	ctx.globalAlpha = .6;
 	ctx.strokeStyle = "#0000000044";
@@ -48,7 +53,7 @@ export function boxy(hues) {
 	// Fill Cell Foreground Units
 	async function cell_fg() {
 		const n = rn(2) === 0 ? 4 : 6; // subunits, 4 or 6
-		const sf = n === 4 ? .2 : .14; // scale factor
+		const sf = n === 4 ? .21 : .14; // scale factor
 		ctx.save();
 		switch (rn(4)) {
 			case 0: break;
