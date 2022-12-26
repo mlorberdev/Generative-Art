@@ -9,17 +9,17 @@ The project is deployed at [https://mlorberdev-generative-art.netlify.app/](http
 ## Screenshots
 
 ### Sample
-![ss1](./assets/images/ss1.png)
+![ss1](./assets/images/ss1.webp)
 ### Sample
-![ss2](./assets/images/ss2.png)
+![ss2](./assets/images/ss2.webp)
 ### Sample
-![ss3](./assets/images/ss3.png)
+![ss3](./assets/images/ss3.webp)
 ### Sample
-![ss4](./assets/images/ss4.png)
+![ss4](./assets/images/ss4.webp)
 ### Sample
-![ss5](./assets/images/ss5.png)
+![ss5](./assets/images/ss5.webp)
 ### Sample
-![ss5](./assets/images/ss6.png)
+![ss5](./assets/images/ss6.webp)
 
 ## License
 2022 [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) attribution required.
