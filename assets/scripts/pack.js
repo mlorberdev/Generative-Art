@@ -1,8 +1,6 @@
-import { palettes } from "./palettes.js";
-export function pack() {
+export function pack(hues) {
 
 	const rn = (z) => { return z === undefined ? Math.random() : Math.floor(Math.random() * z); }
-	const palette = palettes[rn(palettes.length)];
 	const tau = 2 * Math.PI;
 	const canvas = document.getElementById("c");
 	const ctx = canvas.getContext("2d");
@@ -69,7 +67,7 @@ export function pack() {
 		ctx.beginPath();
 		ctx.arc(c.x, c.y, c.mr, 0, tau);
 		ctx.stroke();
-		ctx.fillStyle = palette[rn(5)];
+		ctx.fillStyle = hues[rn(5)];
 		ctx.fill();
 	}
 
