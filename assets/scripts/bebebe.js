@@ -1,21 +1,14 @@
-import { palettes } from "./palettes.js";
-export function bebebe() {
-
-	// Color Palette
-	const hues = palettes[Math.floor(Math.random() * palettes.length)];
+export function bebebe(hues) {
 
 	// Variables
 	const rn = (n, p) => { p = p || 0; return Math.floor(Math.random() * n) + p; }
 	const ver = rn(2);
 	const N = 10;
 	const num = rn(10000);
-	const dots = [];
 
 	// Setup Main Canvas
 	const canvas = document.getElementById("c");
 	const tw = canvas.width = canvas.height = .8 * Math.min(innerWidth, innerHeight);
-	canvas.setAttribute('width', tw * window.devicePixelRatio);
-	canvas.setAttribute('height', tw * window.devicePixelRatio);
 	const ctx = c.getContext("2d");
 	ctx.lineWidth = 3;
 	ctx.lineJoin = "round";
