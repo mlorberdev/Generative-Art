@@ -72,7 +72,6 @@ body {
 	align-items: center;
 	justify-content: center;
 	font-weight: bold;
-	font-size: .7rem;
 	background-color: #666;
 	color: white;
 	cursor: pointer;
@@ -84,7 +83,7 @@ body {
 	color:white;
 	position:absolute;
 	left:24px;
-	transition:opacity .2s linear;
+	transition:filter .2s linear;
 	width:max-content;
 	padding:.5rem 2rem .5rem 0;
 	border-top-right-radius: 12px;
@@ -95,11 +94,11 @@ li {
 }
 
 #info:not(:checked)~#toast {
-	opacity:0;
+	filter:opacity(0);
 }
 
 #info:checked~#toast {
-	opacity:1;
+	filter:opacity(1);
 }
 
 .art,
@@ -112,7 +111,6 @@ select {
 	background-color: transparent;
 	border: none;
 	outline: none;
-	font-size: .7rem;
 }
 
 #buttons {
@@ -121,19 +119,11 @@ select {
 	left: 15px;
 }
 
-#sticky {
-	font-size: .7rem;
-	display: flex;
-	align-items: center;
-	z-index: 100;
-}
-
 button {
 	background: none;
 	border: none;
 	border-radius: 1.4rem;
 	padding: 10px 20px;
-	font-size: .7rem;
 	text-transform: uppercase;
 }
 
@@ -149,14 +139,20 @@ a:hover {
 	right: 0;
 	padding: 10px;
 	color: #666;
-	font-size: .6rem;
 	text-decoration: none;
 }
 
 #mc {
 	display: none;
 }
-
+#info_btn,
+select,
+button,
+#license,
+#license:visited,
+#toast {
+	font-size:.7rem;
+}
 .github-corner {
 	position: absolute;
 	top: 0;
@@ -186,12 +182,16 @@ a:hover {
 	}
 }
 
-@media (max-width:500px) {
+@media (max-width:1000px) {
 	.github-corner:hover .octo-arm {
 		animation: none
 	}
-
-	.github-corner .octo-arm {
-		animation: octocat-wave 560ms ease-in-out
+		#info_btn,
+		select,
+		button,
+		#license,
+		#license:visited,
+		#toast {
+		font-size:.5rem;
 	}
 }
