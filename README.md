@@ -9,17 +9,23 @@ The project is deployed at [https://mlorberdev-generative-art.netlify.app/](http
 ## Screenshots
 
 ### Sample
-![ss1](./assets/images/ss1.webp)
+![ss2](./assets/images/mlorber_algorithmic_art%20(3).jpg)
 ### Sample
-![ss2](./assets/images/ss2.webp)
+![ss3](./assets/images/mlorber_algorithmic_art%20(4).jpg)
 ### Sample
-![ss3](./assets/images/ss3.webp)
+![ss4](./assets/images/mlorber_algorithmic_art%20(5).jpg)
 ### Sample
-![ss4](./assets/images/ss4.webp)
+![ss5](./assets/images/mlorber_algorithmic_art%20(6).jpg)
 ### Sample
-![ss5](./assets/images/ss5.webp)
+![ss5](./assets/images/mlorber_algorithmic_art%20(7).jpg)
 ### Sample
-![ss5](./assets/images/ss6.webp)
+![ss5](./assets/images/mlorber_algorithmic_art%20(8).jpg)
+### Sample
+![ss5](./assets/images/mlorber_algorithmic_art%20(9).jpg)
+### Sample
+![ss5](./assets/images/mlorber_algorithmic_art%20(10).jpg)
+### Sample
+![ss5](./assets/images/mlorber_algorithmic_art%20(11).jpg)
 
 ## License
 2022 [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) attribution required.
