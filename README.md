@@ -19,8 +19,6 @@ The project is deployed at [https://mlorberdev-generative-art.netlify.app/](http
 ### Sample
 ![ss5](./assets/images/mlorber_algorithmic_art%20(7).jpg)
 ### Sample
-![ss5](./assets/images/mlorber_algorithmic_art%20(8).jpg)
-### Sample
 ![ss5](./assets/images/mlorber_algorithmic_art%20(9).jpg)
 ### Sample
 ![ss5](./assets/images/mlorber_algorithmic_art%20(10).jpg)
