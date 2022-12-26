@@ -4,7 +4,7 @@ export function paths(hues) {
 	const canvas = document.getElementById("c");
 	const ctx = canvas.getContext("2d");
 	const w = canvas.width = canvas.height = .8 * Math.min(innerWidth, innerHeight);
-	const N = 8; // number of units on canvas is N x N
+	const N = 9; // number of units on canvas is N x N
 	const u = .55 * w / N; // unit size
 	const g = .1 * u; // creates a gap between units (e.g. g = .1 makes a .1*u gap, as the translate is 1.1*u)
 	const dx = .2 * w - g; // canvas border width
