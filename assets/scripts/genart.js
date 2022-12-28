@@ -33,6 +33,11 @@ import { grid } from "./grid.js";
 
 	document.querySelectorAll(".hue").forEach(hue => hue.addEventListener("click", newBgHue));
 
+	// document.getElementById("own_hues").addEventListener("click", function () {
+	// 	let op = document.getElementById("ohp").style.fill; console.log(op);
+	// 	op === "#aaa" ? op = "#666" : op = "#aaa";
+	// });
+
 	document.getElementById("chooseArt").querySelectorAll(":scope > button").forEach(e => e.addEventListener("click", function () {
 
 		if (lock.checked === false) newHues();
