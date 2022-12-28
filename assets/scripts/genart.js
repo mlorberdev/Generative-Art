@@ -13,7 +13,7 @@ import { grid } from "./grid.js";
 
 !(function () {
 
-	const writeHues = () => { for (let i = 0; i < 5; i++) document.getElementById(`hue${i}`).style.backgroundColor = hues[i]; };
+	async function writeHues() { for (let i = 0; i < 5; i++) document.getElementById(`hue${i}`).style.backgroundColor = hues[i]; };
 	let lock = document.getElementById("lock");
 	let hues;
 
