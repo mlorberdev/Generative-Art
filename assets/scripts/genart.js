@@ -27,7 +27,7 @@ import { grid } from "./grid.js";
 		let bg = this.style.backgroundColor;
 		hues = [bg];
 		let swatches = document.querySelectorAll(".hue");
-		for (let i = 0; i < 4; i++) if (swatches[i].style.backgroundColor !== bg) hues.push(swatches[i].style.backgroundColor);
+		for (let i = 0; i < 5; i++) if (swatches[i].style.backgroundColor !== bg) hues.push(swatches[i].style.backgroundColor);
 		writeHues();
 	}
 
