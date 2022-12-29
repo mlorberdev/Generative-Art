@@ -73,7 +73,11 @@ body {
 	border: 1px solid #666;
 	margin-bottom: 3px;
 }
-
+#info_wrap {
+	position:fixed;
+	bottom:15px;
+	right:15px;
+}
 #info_btn {
 	width: 17px;
 	height: 17px;
@@ -85,31 +89,25 @@ body {
 	background-color: #666;
 	color: white;
 	cursor: pointer;
-	margin-top: .2rem;
+	padding:5px;
 }
 
 #toast {
-	background-color: #666;
+	background: #666;
 	color:white;
-	position:absolute;
-	left:24px;
-	transition:filter .2s linear;
+	position:fixed;
+	bottom:17px;
 	width:max-content;
 	max-width:70vw;
 	padding:.5rem 2rem .5rem 0;
 	border-top-right-radius: 12px;
 	border-bottom-left-radius: 12px;
+	padding: 1rem;
+	z-index:100;
+	display:none;
 }
-li {
-	padding:.25rem;
-}
-
-#info:not(:checked)~#toast {
-	filter:opacity(0);
-}
-
-#info:checked~#toast {
-	filter:opacity(1);
+#toast > div {
+	padding:.25rem 0;
 }
 
 .art,
@@ -160,8 +158,7 @@ a:hover {
 select,
 button,
 #license,
-#license:visited,
-#toast {
+#license:visited {
 	font-size:.7rem;
 }
 .github-corner {

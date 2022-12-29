@@ -11,11 +11,20 @@
 </head>
 
 <body id="body">
+    <!-- INFORMATION -->
+    <div id="info_wrap" style="width:18px;">
+        <div id="info_btn">i</div>
+    </div>
+    <div id="toast" style="display:none">
+        <div>Set the lock to keep this palette. The top color is the background.</div>
+        <div>Not every work uses a background, but click any box to move it to the top.</div>
+        <div>Clicking the name of the work again for a new piece & palette.</div>
+    </div>
     <!-- PALETTE -->
     <div id="palette">
         <div style="margin-bottom:3px">
             <label id="lock_wrap" for="lock">
-                <input id="lock" type="checkbox" style="display:none" />
+                <input id="lock" type="checkbox" style="visibility: hidden;" />
                 <svg height="24px" id="lock_true" viewBox="0 0 24 24" width="24px" xml:space="preserve"
                     xmlns="http://www.w3.org/2000/svg">
                     <path style="fill:#666"
@@ -35,24 +44,11 @@
             <div id="hue3" class="hue"></div>
             <div id="hue4" class="hue"></div>
         </div>
-        <!-- <div id="own_hues">
+        <div id="own_hues">
             <svg height="17px" width="17px" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
                 <path id="ohp" style="fill:#999"
                     d="M204.3 5.017C104.9 24.42 24.8 104.4 5.171 203.5c-36.1 187 131.7 326.4 258.8 306.7c41.19-6.406 61.41-54.61 42.5-91.7c-23.09-45.41 9.897-98.4 60.9-98.4h79.7c35.81 0 64.8-29.59 64.9-65.31C511.5 97.13 368.1-26.89 204.3 5.017zM96 320c-17.69 0-32-14.31-32-32c0-17.69 14.31-32.03 31.1-32.03s32 14.31 32 31.1C127.1 305.7 113.7 320 96 320zM128 192c-17.69 0-32-14.31-32-32s14.31-32 32-32s32 14.31 32 32S145.7 192 128 192zM256 128c-17.69 0-32-14.31-32-32S238.3 64.04 256 64.04s32 14.31 32 32S273.7 128 256 128zM384 192c-17.69 0-32-14.31-32-32s14.31-32 32-32s32 14.31 32 32S401.7 192 384 192z" />
             </svg>
-        </div> -->
-        <div style="width:18px;">
-            <label for="info">
-                <input id="info" type="checkbox" style="display:none" />
-                <div id="info_btn">i</div>
-                <div id="toast">
-                    <ul>
-                        <li>Set the lock to keep this palette. The top color is the background.</li>
-                        <li>Not every work uses a background, but click any box to move it to the top.</li>
-                        <li>Keep clicking the name of the work for a new piece.</li>
-                    </ul>
-                </div>
-            </label>
         </div>
     </div>
 
@@ -100,9 +96,6 @@
         <button>boxy</button>
         <button>grid</button>
     </div>
-
-    <!-- LICENSE -->
-    <a id="license" href="https://creativecommons.org/licenses/by/3.0/" target="_blank">© 2022</a>
 
 </body>
 <script type="module" src="./assets/scripts/genart.js"></script>

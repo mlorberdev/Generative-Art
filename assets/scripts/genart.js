@@ -13,6 +13,11 @@ import { grid } from "./grid.js";
 
 !(function () {
 
+	document.getElementById("info_wrap").addEventListener("click", function () {
+		let viz = document.getElementById("toast");
+		viz.style.display === "none" ? viz.style.display = "block" : viz.style.display = "none";
+	});
+
 	async function writeHues() { for (let i = 0; i < 5; i++) document.getElementById(`hue${i}`).style.backgroundColor = hues[i]; };
 	let lock = document.getElementById("lock");
 	let hues;
@@ -33,10 +38,10 @@ import { grid } from "./grid.js";
 
 	document.querySelectorAll(".hue").forEach(hue => hue.addEventListener("click", newBgHue));
 
-	// document.getElementById("own_hues").addEventListener("click", function () {
-	// 	let op = document.getElementById("ohp").style.fill; console.log(op);
-	// 	op === "#aaa" ? op = "#666" : op = "#aaa";
-	// });
+	document.getElementById("own_hues").addEventListener("click", function () {
+		let op = document.getElementById("ohp").style.fill; console.log(op);
+		op === "#aaa" ? op = "#666" : op = "#aaa";
+	});
 
 	document.getElementById("chooseArt").querySelectorAll(":scope > button").forEach(e => e.addEventListener("click", function () {
 
