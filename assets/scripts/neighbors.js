@@ -1,6 +1,7 @@
 export function neighbors(hues) {
 	// Variables
 	const rn = (z) => { return Math.floor(Math.random() * z); }
+	let fs = innerHeight > innerWidth && innerWidth < 450 ? 4 : 8;
 	const canvas = document.getElementById("c");
 	const ctx = canvas.getContext("2d");
 	const ww = canvas.width = canvas.height = .8 * Math.min(innerWidth, innerHeight);
@@ -16,16 +17,16 @@ export function neighbors(hues) {
 		case 2: N = 500; d = 22; break;
 		case 3: N = 250; d = 18; break;
 	}
+	if (fs === 4) { Math.floor(N /= 3); d /= 2; }
 	let n = []; // nodes array
 
 	// Setup Canvas
-	ctx.lineWidth = .8;
+	ctx.lineWidth = fs === 8 ? .8 : .4;
 	ctx.lineCap = ctx.lineJoin = "round";
 	ctx.fillStyle = hues[0];
 	ctx.strokeStyle = "#00000022";
 	ctx.fillRect(0, 0, ww, ww); // fill canvas bg
 	const num = rn(10000);
-	let fs = innerHeight > innerWidth && innerWidth < 450 ? 4 : 8;
 	ctx.font = `italic 400 ${fs}px 'Times New Roman'`;
 	ctx.fillStyle = hues[1];
 	ctx.fillText(`Neighbors № ${num} ${new Date().toDateString()}`, 5, canvas.width - 7);

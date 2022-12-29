@@ -36,11 +36,13 @@ body {
 	flex-direction: column;
 	align-items: center;
 }
-
+#locks {
+	margin-bottom:1rem;
+}
 #lock_wrap {
 	cursor: pointer;
-	width:fit-content;
-	height:fit-content;
+	width: fit-content;
+	height: fit-content;
 }
 
 #lock:checked~#lock_true {
@@ -60,10 +62,10 @@ body {
 }
 
 #own_hues {
-	display:flex;
+	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin:1rem 0px;
+	margin: 1rem 0px;
 	cursor: pointer;
 }
 
@@ -73,11 +75,13 @@ body {
 	border: 1px solid #666;
 	margin-bottom: 3px;
 }
+
 #info_wrap {
-	position:fixed;
-	bottom:15px;
-	right:15px;
+	position: fixed;
+	bottom: 10px;
+	right: 5px;
 }
+
 #info_btn {
 	width: 17px;
 	height: 17px;
@@ -89,25 +93,26 @@ body {
 	background-color: #666;
 	color: white;
 	cursor: pointer;
-	padding:5px;
+	padding: 5px;
 }
 
 #toast {
 	background: #666;
-	color:white;
-	position:fixed;
-	bottom:17px;
-	width:max-content;
-	max-width:70vw;
-	padding:.5rem 2rem .5rem 0;
+	color: white;
+	position: fixed;
+	bottom: 17px;
+	width: max-content;
+	max-width: 70vw;
+	padding: .5rem 2rem .5rem 0;
 	border-top-right-radius: 12px;
 	border-bottom-left-radius: 12px;
 	padding: 1rem;
-	z-index:100;
-	display:none;
+	z-index: 100;
+	display: none;
 }
-#toast > div {
-	padding:.25rem 0;
+
+#toast>div {
+	padding: .25rem 0;
 }
 
 .art,
@@ -154,18 +159,23 @@ a:hover {
 #mc {
 	display: none;
 }
+
 #info_btn,
 select,
 button,
 #license,
 #license:visited {
-	font-size:.7rem;
+	font-size: .7rem;
 }
+
 .github-corner {
+	--gcw: 80px;
 	position: absolute;
 	top: 0;
 	border: 0;
 	right: 0;
+	width: var(--gcw);
+	height: var(--gcw);
 }
 
 .github-corner:hover .octo-arm {
@@ -190,16 +200,79 @@ button,
 	}
 }
 
-@media (max-width:1000px) {
-	.github-corner:hover .octo-arm {
-		animation: none
+@media (max-width:1000px),
+(max-height:500px) {
+
+	#palette {
+			transform-origin: center center;
+			transform: scale(.7);
+		}
+
+	#info_btn {
+		width: 13px;
+		height: 13px;
 	}
-		#info_btn,
-		select,
-		button,
-		#license,
-		#license:visited,
-		#toast {
-		font-size:.5rem;
+
+	#chooseArt {
+		top: 5px;
+	}
+
+	.github-corner {
+		--gcw: 40px;
+	}
+
+	.github-corner:hover .octo-arm {
+		animation: none;
+	}
+
+	#info_btn,
+	select,
+	button,
+	#license,
+	#license:visited,
+	#toast {
+		font-size: .5rem;
+	}
+
+	#chooseArt>button {
+		font-size: .5rem;
+		border-radius: 1.4rem;
+		padding: 5px 10px;
+		text-transform: uppercase;
+	}
+}
+
+@media (max-width:650px) {
+	#info_btn {
+		width: 13px;
+		height: 13px;
+	}
+
+	.github-corner {
+		--gcw: 40px;
+	}
+
+	.github-corner:hover .octo-arm {
+		animation: none;
+	}
+
+	#palette {
+		bottom: 0;
+		left: unset;
+		transform-origin: center center;
+		transform: scale(.7) rotate(90deg);
+	}
+
+	#oh,
+	#lock_wrap svg {
+		transform-origin: center center;
+		transform: scale(.7) rotate(-90deg);
+	}
+
+	#chooseArt>button {
+		font-size: .5rem;
+		border-radius: 1.4rem;
+		padding: 5px 10px;
+		text-transform: uppercase;
 	}
 }
