@@ -67,13 +67,33 @@ body {
 	justify-content: center;
 	margin: 1rem 0px;
 	cursor: pointer;
+	transform-origin: center center;
 }
-
+.own_hue {
+	position: relative;
+	left: 125%;
+	border:none;
+	background-color: transparent;
+}
+.hidden {
+	display:none;
+}
+.spin {
+	animation:spin 3s linear infinite;
+}
+@keyframes spin {
+	from {transform:rotate(0deg);}
+	to {transform:rotate(360deg);}
+}
 .hue {
+	position:relative;
 	width: 24px;
 	height: 24px;
 	border: 1px solid #666;
 	margin-bottom: 3px;
+	display:flex;
+	align-items: center;
+	justify-content: center;
 }
 
 #info_wrap {
