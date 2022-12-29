@@ -15,7 +15,8 @@ export function bebebe(hues) {
 	ctx.lineCap = "round";
 	ctx.fillStyle = hues[0];
 	ctx.fillRect(0, 0, tw, tw);
-	ctx.font = "italic 400 8px 'Times New Roman'";
+	let fs = innerHeight > innerWidth && innerWidth < 450 ? 4 : 8;
+	ctx.font = `italic 400 ${fs}px 'Times New Roman'`;
 	ctx.globalCompositeOperation = "lighter";
 	ctx.fillText(`bebebe № ${num} ${new Date().toDateString()}`, 5, tw - 5);
 	ctx.globalCompositeOperation = "source-over";

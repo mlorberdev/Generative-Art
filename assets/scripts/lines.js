@@ -4,7 +4,7 @@ export function lines(hues) {
     const canvas = document.getElementById("c"), ctx = canvas.getContext("2d");
     const N = 3000;
     const lw = [1,2,3,4,5];
-    const ww = .8 * innerHeight;
+    const ww = .8 * Math.min(innerWidth, innerHeight);
     const dx = .1 * ww;
     const w = ww - 2 * dx;
     const mag = .12 * w; // max line length

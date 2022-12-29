@@ -25,7 +25,8 @@ export function neighbors(hues) {
 	ctx.strokeStyle = "#00000022";
 	ctx.fillRect(0, 0, ww, ww); // fill canvas bg
 	const num = rn(10000);
-	ctx.font = "italic 400 8px 'Times New Roman'";
+	let fs = innerHeight > innerWidth && innerWidth < 450 ? 4 : 8;
+	ctx.font = `italic 400 ${fs}px 'Times New Roman'`;
 	ctx.fillStyle = hues[1];
 	ctx.fillText(`Neighbors № ${num} ${new Date().toDateString()}`, 5, canvas.width - 7);
 	ctx.translate(bd - g / 2, bd - g / 2); // move ctx to start drawing inside planned border

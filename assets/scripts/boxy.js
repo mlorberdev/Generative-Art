@@ -17,7 +17,8 @@ export function boxy(hues) {
 	hues = hues.sort((a, b) => .5 - Math.random()); // shuffle hues
 	ctx.fillStyle = "#fff"; // color canvas bg
 	ctx.fillRect(0, 0, ww, ww);
-	ctx.font = "italic 400 8px 'Times New Roman'";
+	let fs = innerHeight > innerWidth && innerWidth < 450 ? 4 : 8;
+	ctx.font = `italic 400 ${fs}px 'Times New Roman'`;
 	ctx.fillStyle = "#000000bb";
 	if (innerWidth < 1024 || innerHeight < 768) {
 		ctx.font = "italic 400 12px 'Times New Roman'";

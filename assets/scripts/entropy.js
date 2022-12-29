@@ -19,7 +19,8 @@ export function entropy(hues) {
     ctx.fillRect(0, 0, ww, hh);
     const rn = (z) => { return Math.floor(Math.random() * z); }
     const num = rn(10000);
-    ctx.font = "italic 400 8px 'Times New Roman'";
+    let fs = innerHeight > innerWidth && innerWidth < 450 ? 4 : 8;
+    ctx.font = `italic 400 ${fs}px 'Times New Roman'`;
     ctx.fillStyle = "#00000088";
     ctx.save();
     ctx.translate(ww-65,hh+35);

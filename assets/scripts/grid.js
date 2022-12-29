@@ -44,7 +44,8 @@ export function grid(hues) {
 			ctx.fillStyle = main_bg; // canvas background color
 			ctx.fillRect(0, ww - dx, ww, ww); // apply bg color
 			ctx.fillRect(ww - dx, 0, ww, ww); // apply bg color
-			ctx.font = "italic 400 8px 'Times New Roman'";
+			let fs = innerHeight > innerWidth && innerWidth < 450 ? 4 : 8;
+			ctx.font = `italic 400 ${fs}px 'Times New Roman'`;
 			ctx.fillStyle = "#00000088";
 			ctx.fillText(`Grid № ${num} ${hues.toString()} ${new Date().toDateString()}`, 5, ww - 5);
 		}

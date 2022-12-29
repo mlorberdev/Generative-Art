@@ -13,7 +13,8 @@ export function nooks() {
 	ctx.fillStyle = hues[0];
 	ctx.fillRect(0, 0, ww, ww);
 	ctx.fillStyle = hues[1];
-	ctx.font = "italic 400 8px 'Times New Roman'";
+	let fs = innerHeight > innerWidth && innerWidth < 450 ? 4 : 8;
+	ctx.font = `italic 400 ${fs}px 'Times New Roman'`;
 	ctx.translate(ww / 2, ww / 2);
 	ctx.save();
 	ctx.rotate(-Math.PI / 2);
