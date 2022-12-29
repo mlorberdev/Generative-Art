@@ -4,7 +4,7 @@ export function pack(hues) {
 	const tau = 2 * Math.PI;
 	const canvas = document.getElementById("c");
 	const ctx = canvas.getContext("2d");
-	let ww = .8 * innerHeight;
+	let ww = .8 * Math.min(innerWidth, innerHeight);;
 	const dx = .15 * ww;
 	canvas.width = canvas.height = ww;
 	const circles = [];
@@ -17,7 +17,8 @@ export function pack(hues) {
 	ctx.fillRect(0, 0, ww, ww);
 	let variant = "";
 	T === 0 ? variant = "Circle" : variant = "Square";
-	ctx.font = "italic 400 8px 'Times New Roman'";
+	let fs = innerHeight > innerWidth && innerWidth < 450 ? 4 : 8;
+	ctx.font = `italic 400 ${fs}px 'Times New Roman'`;
 	ctx.fillStyle = "#000000bb";
 	const num = rn(10000);
 	ctx.fillText(`Pack ${variant} Variant № ${num} ${new Date().toDateString()}`, 5, ww - 7);
