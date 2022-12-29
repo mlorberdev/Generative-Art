@@ -3,7 +3,8 @@ export function lines(hues) {
     // Variables
     const canvas = document.getElementById("c"), ctx = canvas.getContext("2d");
     const N = 3000;
-    const lw = [1,2,3,4,5];
+    // const lw = [1, 2, 3, 4, 5];
+    let lw = innerHeight > innerWidth && innerWidth < 450 ? [1, 2, 3] : [1, 2, 3, 4, 5];
     const ww = .8 * Math.min(innerWidth, innerHeight);
     const dx = .1 * ww;
     const w = ww - 2 * dx;
@@ -23,7 +24,8 @@ export function lines(hues) {
 
     void function main() {
         setup();
-        ctx.font = "italic 400 8px 'Times New Roman'";
+        let fs = innerHeight > innerWidth && innerWidth < 450 ? 4 : 8;
+        ctx.font = `italic 400 ${fs}px 'Times New Roman'`;
         ctx.fillStyle = hues[1];
         ctx.fillText(`3000 Lines № ${num} ${palette.toString()} ${new Date().toDateString()}`, 5, ww - 7);
         ctx.translate(dx, dx);
