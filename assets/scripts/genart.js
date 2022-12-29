@@ -45,6 +45,9 @@ import { grid } from "./grid.js";
 
 	document.getElementById("chooseArt").querySelectorAll(":scope > button").forEach(e => e.addEventListener("click", function () {
 
+		let c = document.getElementById("c");
+		if (c.style.display === "none") c.style.display = "block";
+		
 		if (lock.checked === false) newHues();
 
 		switch (this.innerText.toLowerCase()) {
