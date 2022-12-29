@@ -20,12 +20,12 @@ export function boxy(hues) {
 	let fs = innerHeight > innerWidth && innerWidth < 450 ? 4 : 8;
 	ctx.font = `italic 400 ${fs}px 'Times New Roman'`;
 	ctx.fillStyle = "#000000bb";
-	if (innerWidth < 1024 || innerHeight < 768) {
-		ctx.font = "italic 400 12px 'Times New Roman'";
-		ctx.fillText('Boxy does not work on mobile at this time', ww/8, ww/2);
-		return;
-	}
-	ctx.fillText(`Boxy № ${num} ${hues.toString()} ${new Date().toDateString()}`, 5, ww - 5);
+	// if (innerWidth < 1024 || innerHeight < 768) {
+	// 	ctx.font = "italic 400 12px 'Times New Roman'";
+	// 	ctx.fillText('Boxy does not work on mobile at this time', ww/8, ww/2);
+	// 	return;
+	// }
+	ctx.fillText(`Boxy № ${num} ${new Date().toDateString()}`, 5, ww - 5);
 	ctx.globalAlpha = .6;
 	ctx.strokeStyle = "#0000000044";
 	ctx.lineWidth = .6;
@@ -54,7 +54,7 @@ export function boxy(hues) {
 	// Fill Cell Foreground Units
 	async function cell_fg() {
 		const n = rn(2) === 0 ? 4 : 6; // subunits, 4 or 6
-		const sf = n === 4 ? .21 : .14; // scale factor
+		const sf = n === 4 ? .2 : .13; // scale factor
 		ctx.save();
 		switch (rn(4)) {
 			case 0: break;
@@ -62,7 +62,8 @@ export function boxy(hues) {
 			case 2: ctx.translate(u, u); ctx.rotate(-Math.PI); break;
 			case 3: ctx.translate(u, 0); ctx.rotate(Math.PI / 2); break;
 		}
-		for (let i = 1; i < n + 1; i++) cell((u - 5) - i * sf * u, 5 * i + 4);
+		// for (let i = 1; i < n + 1; i++) cell((u - 5) - i * sf * u, 5 * i + 4);
+		for (let i = 1; i < n + 1; i++) cell((u - 5) - i * sf * u, 5 * sf * i + 4);
 		ctx.restore();
 	}
 }
