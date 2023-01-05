@@ -1,6 +1,4 @@
 import { palettes } from "./palettes.js";
-// import { disko } from "./disko.js";
-// import { nooks } from "./nooks.js";
 import { entropy } from "./entropy.js";
 import { lines } from "./lines.js";
 import { pack } from "./pack.js";
@@ -13,20 +11,17 @@ import { grid } from "./grid.js";
 
 !(function () {
 
+	// COLOR PALETTE
+
 	let lock = document.getElementById("lock");
 	let hues;
 
-	void function init() {
+	window.onload = function init() {
 		hues = ["rgb(35,57,68)", "rgb(244,242,191)", "rgb(143,137,125)", "rgb(182,170,146)", "rgb(208,196,172)"];
 		writeHues();
-	}();
+	}
 
-	document.getElementById("info_wrap").addEventListener("click", function () {
-		let viz = document.getElementById("toast");
-		viz.style.display === "none" ? viz.style.display = "block" : viz.style.display = "none";
-	});
-
-	async function writeHues() { for (let i = 0; i < 5; i++) document.getElementById(`hue${i}`).style.backgroundColor = hues[i]; };
+	function writeHues() { for (let i = 0; i < 5; i++) document.getElementById(`hue${i}`).style.backgroundColor = hues[i]; };
 
 	function newHues() {
 		if (lock.checked) return;
@@ -65,16 +60,23 @@ import { grid } from "./grid.js";
 		}
 	}
 
+	// INFORMATION BUTTON
+
+	document.getElementById("info_wrap").addEventListener("click", function () {
+		let viz = document.getElementById("toast");
+		viz.style.display === "none" ? viz.style.display = "block" : viz.style.display = "none";
+	});
+
+	// CALL CHOOSE ART FUNCTIONS
+
 	document.getElementById("chooseArt").querySelectorAll(":scope > button").forEach(e => e.addEventListener("click", function () {
 
 		let c = document.getElementById("c");
 		if (c.style.display === "none") c.style.display = "block";
-
 		if (lock.checked === false) newHues();
 
-		switch (this.innerText.toLowerCase()) {
-			// case ("disko"): disko(); break;
-			// case ("nooks"): nooks(); break;
+		let X = this.innerText.toLowerCase();
+		switch (X) {
 			case ("entropy"): entropy(hues); break;
 			case ("lines"): lines(hues); break;
 			case ("pack"): pack(hues); break;
@@ -86,5 +88,39 @@ import { grid } from "./grid.js";
 			case ("grid"): grid(hues); break;
 		}
 
+		// let cv = document.getElementById("coa");
+		// let cxt = cv.getContext("2d");
+		// let temp = document.getElementById("template");
+		// cxt.drawImage(temp, 0, 0);
+		// let s = `${this.innerText} № ${Math.floor(Math.random() * 10000)}`;
+		// let d = new Date().toLocaleDateString();
+		// document.getElementById("title_of_work").innerText = s;
+		// document.getElementById("color_palette").innerText = hues.toString();
+		// document.getElementById("date_of_work").innerText = d;
+
 	}));
+
+	// SAVE FUNCTION
+	document.getElementById("save").addEventListener("click", function () {
+
+		let c = document.getElementById("c");
+		let ctx = c.getContext("2d");
+
+		let type = document.getElementById("sel").value;
+		let ele = document.createElement("a");
+		document.body.appendChild(ele);
+		ele.download = `mlorber_genart.${type.toLowerCase()}`;
+		ele.href = c.toDataURL(`image/${type.toLowerCase()};base64`);
+		ele.click();
+		ele.remove();
+
+		// ctx.translate(-c.width, -c.height);
+		// c.style.display = "none";
+		// ctx.clearRect(0, 0, c.width * 3, c.height * 3);
+
+		// if (document.getElementById("check").checked) {
+		// 	cx.fillText("Certificate of Authenticity", 50, 50);
+		// }
+
+	});
 })();

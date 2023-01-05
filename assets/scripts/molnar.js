@@ -9,7 +9,6 @@ export function molnar(hues) {
 	const u = .6 * w / N; // unit size, initial
 	const dx = .2 * w + .05 * u * N; // canvas border width
 	const v = 10; // number of revolutions per unit
-	const num = Math.floor(Math.random() * 10000);
 	let rg = () => { return (Math.random() - 0.5) * 6; } // growth factor
 
 	void function main() {
@@ -21,10 +20,6 @@ export function molnar(hues) {
 			ctx.lineWidth = .7;
 			ctx.fillStyle = hues[0]; // canvas bg
 			ctx.fillRect(0, 0, w, w);
-			let fs = innerHeight > innerWidth && innerWidth < 450 ? 4 : 8;
-			ctx.font = `italic 400 ${fs}px 'Times New Roman'`;
-			ctx.fillStyle = hues[1];
-			ctx.fillText(`Molnar № ${num} ${new Date().toDateString()}`, 5, w - 7);
 			ctx.translate(dx, dx);
 		}
 

@@ -79,7 +79,18 @@
             <option>EPS</option>
             <option>WEBP</option>
         </select>
+        <label id="cert" for="check">
+            <span>Also download certificate</span>
+            <input id="check" type="checkbox" checked/>
+        </label>
+
+        <!-- CERTIFICATE DATA + TEMPLATE -->
+        <div id="ctitle" style="display:none"></div>
+        <div id="cdate" style="display:none"></div>
+        <div id="cpalette" style="display:none"></div>
+        <img id="template" src="./assets/images/certificate.svg" style="display:none"/>
     </div>
+
 
     <!-- GH  -->
     <a href="https://github.com/mlorberdev/Generative-Art" target="_blank" class="github-corner"
@@ -99,36 +110,25 @@
     <!-- CANVASES -->
     <canvas id="c" style="display:none"></canvas>
     <canvas id="mc"></canvas>
+    <canvas id="coa" width="786px" height="488px" style="display:none"></canvas>
 
     <!-- CHOOSE ART -->
     <div id="chooseArt">
         <!-- <button>disko</button>
         <button>nooks</button> -->
-        <button>entropy</button>
-        <button>lines</button>
-        <button>pack</button>
-        <button>neighbors</button>
-        <button>paths</button>
-        <button>molnar</button>
-        <button>bebebe</button>
-        <button>boxy</button>
-        <button>grid</button>
+        <!-- note: programs writing certificate title rely on first letter capitalized for COA to have capitalized title (genart.js)-->
+        <button>Entropy</button>
+        <button>Lines</button>
+        <button>Pack</button>
+        <button>Neighbors</button>
+        <button>Paths</button>
+        <button>Molnar</button>
+        <button>Bebebe</button>
+        <button>Boxy</button>
+        <button>Grid</button>
     </div>
 
 </body>
 <script type="module" src="./assets/scripts/genart.js"></script>
-<script>
-    // DOWNLOAD IMAGE
-    document.getElementById("save").addEventListener("click", function () {
-        let type = document.getElementById("sel").value;
-        let ele = document.createElement("a");
-        document.body.appendChild(ele);
-        ele.download = `mlorber_algorithmic_art.${type.toLowerCase()}`;
-        ele.href = document.getElementById("c").toDataURL(`image/${type.toLowerCase()};base64`);
-        ele.click();
-        ele.remove();
-    });
-
-</script>
 
 </html>

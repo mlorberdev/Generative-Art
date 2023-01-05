@@ -7,7 +7,8 @@ export function neighbors(hues) {
 	const ww = canvas.width = canvas.height = .8 * Math.min(innerWidth, innerHeight);
 	const bd = .1 * ww; // border offset
 	const cw = ww - 2 * bd; // drawing area width & height (don't change the 2, it's for two borders, left and right)
-	const U = rn(3) + 1; // number of units per row (U x U grid)
+	// const U = rn(3) + 1; // number of units per row (U x U grid)
+	const U = 1;
 	const g = .03 * cw; // space between units
 	const w = cw / U; // unit width & height
 	let N; // number of nodes
@@ -26,10 +27,6 @@ export function neighbors(hues) {
 	ctx.fillStyle = hues[0];
 	ctx.strokeStyle = "#00000022";
 	ctx.fillRect(0, 0, ww, ww); // fill canvas bg
-	const num = rn(10000);
-	ctx.font = `italic 400 ${fs}px 'Times New Roman'`;
-	ctx.fillStyle = hues[1];
-	ctx.fillText(`Neighbors № ${num} ${new Date().toDateString()}`, 5, canvas.width - 7);
 	ctx.translate(bd - g / 2, bd - g / 2); // move ctx to start drawing inside planned border
 	ctx.opacity = .2;
 

@@ -1,3 +1,7 @@
+@font-face {
+	font-family: PlainBlack;
+	src: url(./fonts/Plain_Black.ttf);
+}
 * {
 	font-family: 'Arial Narrow Bold', sans-serif;
 }
@@ -36,9 +40,11 @@ body {
 	flex-direction: column;
 	align-items: center;
 }
+
 #locks {
-	margin-bottom:1rem;
+	margin-bottom: 1rem;
 }
+
 #lock_wrap {
 	cursor: pointer;
 	width: fit-content;
@@ -69,29 +75,39 @@ body {
 	cursor: pointer;
 	transform-origin: center center;
 }
+
 .own_hue {
 	position: relative;
 	left: 125%;
-	border:none;
+	border: none;
 	background-color: transparent;
 }
+
 .hidden {
-	display:none;
+	display: none;
 }
+
 .spin {
-	animation:spin 3s linear infinite;
+	animation: spin 3s linear infinite;
 }
+
 @keyframes spin {
-	from {transform:rotate(0deg);}
-	to {transform:rotate(360deg);}
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
 }
+
 .hue {
-	position:relative;
+	position: relative;
 	width: 24px;
 	height: 24px;
 	border: 1px solid #666;
 	margin-bottom: 3px;
-	display:flex;
+	display: flex;
 	align-items: center;
 	justify-content: center;
 }
@@ -179,13 +195,32 @@ a:hover {
 #mc {
 	display: none;
 }
-
+#coa {
+	position:fixed;
+	top:0;
+	left:0;
+	width:50vw;
+	height:50vh;
+	background-color: #ffffff33;
+	z-index:1000;
+}
 #info_btn,
 select,
 button,
 #license,
 #license:visited {
 	font-size: .7rem;
+}
+
+#cert {
+	color: #666;
+	font-size: .5rem;
+	text-transform: uppercase;
+}
+
+#check {
+	transform: translateY(.15rem);
+	filter: saturate(0);
 }
 
 .github-corner {
@@ -224,9 +259,9 @@ button,
 (max-height:500px) {
 
 	#palette {
-			transform-origin: center center;
-			transform: scale(.7);
-		}
+		transform-origin: center center;
+		transform: scale(.7);
+	}
 
 	#info_btn {
 		width: 13px;

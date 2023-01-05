@@ -28,10 +28,6 @@ export function paths(hues) {
 		ctx.lineCap = ctx.lineJoin = "round";
 		ctx.fillStyle = "white";
 		ctx.fillRect(0, 0, w, w); // fill canvas bg
-		let fs = innerHeight > innerWidth && innerWidth < 450 ? 4 : 8;
-		ctx.font = `italic 400 ${fs}px 'Times New Roman'`;
-		ctx.fillStyle = "#000000bb";
-		ctx.fillText(`Paths № ${num} ${new Date().toDateString()}`, 5, w - 7);
 		ctx.translate(dx, dx); // move ctx to start drawing inside planned border
 	}
 

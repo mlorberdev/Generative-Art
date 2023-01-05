@@ -15,13 +15,8 @@ export function pack(hues) {
 	const T = rn(2) // type, circle(0) or square(1)
 	ctx.fillStyle = "white";
 	ctx.fillRect(0, 0, ww, ww);
-	let variant = "";
+	let variant;
 	T === 0 ? variant = "Circle" : variant = "Square";
-	let fs = innerHeight > innerWidth && innerWidth < 450 ? 4 : 8;
-	ctx.font = `italic 400 ${fs}px 'Times New Roman'`;
-	ctx.fillStyle = "#000000bb";
-	const num = rn(10000);
-	ctx.fillText(`Pack ${variant} Variant № ${num} ${new Date().toDateString()}`, 5, ww - 7);
 	ctx.lineWidth = 1;
 	ctx.strokeStyle = "#000000bb";
 	ctx.globalAlpha = .8;

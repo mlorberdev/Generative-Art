@@ -24,10 +24,6 @@ export function lines(hues) {
 
     void function main() {
         setup();
-        let fs = innerHeight > innerWidth && innerWidth < 450 ? 4 : 8;
-        ctx.font = `italic 400 ${fs}px 'Times New Roman'`;
-        ctx.fillStyle = hues[1];
-        ctx.fillText(`3000 Lines № ${num} ${palette.toString()} ${new Date().toDateString()}`, 5, ww - 7);
         ctx.translate(dx, dx);
         for (let i = 0; i < N; i++) line();
     }();

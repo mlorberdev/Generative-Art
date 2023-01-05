@@ -5,7 +5,8 @@ export function entropy(hues) {
     const lw = .5;
     let diff = lw / 2; // gap between cells
     const hh = .6 * innerHeight;
-    const ww = 1.618 * hh;
+    // const ww = 1.618 * hh;
+    const ww = .6 * innerHeight;
     const dx = .2 * hh;
     const w = ww - 2 * dx;
     const h = hh - 2 * dx;
@@ -18,15 +19,6 @@ export function entropy(hues) {
     ctx.fillStyle = "white";
     ctx.fillRect(0, 0, ww, hh);
     const rn = (z) => { return Math.floor(Math.random() * z); }
-    const num = rn(10000);
-    let fs = innerHeight > innerWidth && innerWidth < 450 ? 4 : 8;
-    ctx.font = `italic 400 ${fs}px 'Times New Roman'`;
-    ctx.fillStyle = "#00000088";
-    ctx.save();
-    ctx.translate(ww-65,hh+35);
-    ctx.rotate(-Math.PI/2);
-    ctx.fillText(`Entropy № ${num}: ${new Date().toDateString()}`, 50,50);
-    ctx.restore();
 
     // Setup Canvas
     function setup() {

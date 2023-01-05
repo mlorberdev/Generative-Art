@@ -15,11 +15,6 @@ export function bebebe(hues) {
 	ctx.lineCap = "round";
 	ctx.fillStyle = hues[0];
 	ctx.fillRect(0, 0, tw, tw);
-	let fs = innerHeight > innerWidth && innerWidth < 450 ? 4 : 8;
-	ctx.font = `italic 400 ${fs}px 'Times New Roman'`;
-	ctx.globalCompositeOperation = "lighter";
-	ctx.fillText(`bebebe № ${num} ${new Date().toDateString()}`, 5, tw - 5);
-	ctx.globalCompositeOperation = "source-over";
 
 	// Translate Contexts
 	const d = .6 * tw / N;
@@ -81,5 +76,6 @@ export function bebebe(hues) {
 			if (rn(3) === 0) continue;
 			shape(i, j).then(ctx.restore());
 		}
-	}()
+	}();
+
 }

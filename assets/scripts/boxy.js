@@ -4,7 +4,6 @@ export function boxy(hues) {
 	const rn = (z) => { return Math.floor(Math.random() * z); }
 
 	// Variables
-	const num = rn(10000); // canvas number & save number
 	const N = 9; // subdivisions of canvas (N x N grid); change to make grid more/less dense
 	const canvas = document.getElementById("c");
 	const ww = canvas.width = canvas.height = .8 * Math.min(innerWidth, innerHeight);
@@ -17,15 +16,7 @@ export function boxy(hues) {
 	hues = hues.sort((a, b) => .5 - Math.random()); // shuffle hues
 	ctx.fillStyle = "#fff"; // color canvas bg
 	ctx.fillRect(0, 0, ww, ww);
-	let fs = innerHeight > innerWidth && innerWidth < 450 ? 4 : 8;
-	ctx.font = `italic 400 ${fs}px 'Times New Roman'`;
-	ctx.fillStyle = "#000000bb";
-	// if (innerWidth < 1024 || innerHeight < 768) {
-	// 	ctx.font = "italic 400 12px 'Times New Roman'";
-	// 	ctx.fillText('Boxy does not work on mobile at this time', ww/8, ww/2);
-	// 	return;
-	// }
-	ctx.fillText(`Boxy № ${num} ${new Date().toDateString()}`, 5, ww - 5);
+
 	ctx.globalAlpha = .6;
 	ctx.strokeStyle = "#0000000044";
 	ctx.lineWidth = .6;
