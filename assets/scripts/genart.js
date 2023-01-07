@@ -88,15 +88,11 @@ import { grid } from "./grid.js";
 			case ("grid"): grid(hues); break;
 		}
 
-		// let cv = document.getElementById("coa");
-		// let cxt = cv.getContext("2d");
-		// let temp = document.getElementById("template");
-		// cxt.drawImage(temp, 0, 0);
-		// let s = `${this.innerText} № ${Math.floor(Math.random() * 10000)}`;
-		// let d = new Date().toLocaleDateString();
-		// document.getElementById("title_of_work").innerText = s;
-		// document.getElementById("color_palette").innerText = hues.toString();
-		// document.getElementById("date_of_work").innerText = d;
+		let s = `${this.innerText} № ${Math.floor(Math.random() * 10000)}`;
+		let d = new Date().toLocaleDateString();
+		document.getElementById("title").innerHTML = s;
+		document.getElementById("date").innerHTML = d;
+		document.getElementById("coapalette").innerHTML = `colors(hex): ${hues.toString().toUpperCase()}`;
 
 	}));
 
@@ -104,8 +100,6 @@ import { grid } from "./grid.js";
 	document.getElementById("save").addEventListener("click", function () {
 
 		let c = document.getElementById("c");
-		let ctx = c.getContext("2d");
-
 		let type = document.getElementById("sel").value;
 		let ele = document.createElement("a");
 		document.body.appendChild(ele);
@@ -114,13 +108,16 @@ import { grid } from "./grid.js";
 		ele.click();
 		ele.remove();
 
-		// ctx.translate(-c.width, -c.height);
-		// c.style.display = "none";
-		// ctx.clearRect(0, 0, c.width * 3, c.height * 3);
-
-		// if (document.getElementById("check").checked) {
-		// 	cx.fillText("Certificate of Authenticity", 50, 50);
-		// }
+		if (document.getElementById("check").checked) {
+			let svg = document.getElementById("template").outerHTML.toString();
+			let target = `data:image/svg+xml,${svg.replaceAll("\r", "").replaceAll("\t", "").replaceAll("\n", "").replaceAll('"', "'").replaceAll("<", "%3C").replaceAll(">", "%3E").replaceAll("#", "%23")}`;
+			let a = document.createElement("a");
+			a.href = target;
+			a.download = `COA.svg`;
+			document.body.appendChild(a);
+			a.click();
+			a.remove();
+		}
 
 	});
 })();
