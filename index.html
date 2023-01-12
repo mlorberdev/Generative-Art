@@ -126,25 +126,39 @@
         <button>Bebebe</button>
         <button>Boxy</button>
         <button>Grid</button>
+        <!-- <button>XoXo</button> -->
+        <!-- <button>Amimals</button> -->
     </div>
 
     <!-- CERTIFICATE TEMPLATE -->
-    <svg id="template" style="display:none" width="100%" height="100%" enable-background='new 0 0 512 512' version='1.1' viewBox="0 0 1606 1000"
-        xmlns='http://www.w3.org/2000/svg'>
+    <svg id="template" style="display:none" width="100%" height="100%" enable-background='new 0 0 512 512' version='1.1'
+        viewBox="0 0 1606 1000" xmlns='http://www.w3.org/2000/svg'>
         <g text-anchor="middle">
             <text x="50%" y="13%" font-size="7rem" font-weight="bold">Certificate</text>
             <text x="50%" y="17%" font-size="3rem" font-weight="bold">Of Authenticity</text>
-            <text x="50%" y="23%">This certifies that this piece of art is an original. This piece has been digitally signed
-                by the artist. All copyright and reproduction rights to the piece are reserved.</text>
-            <text x="50%" y="33%" id="title" font-size="2.5rem" font-weight="bold"></text>
-            <text x="50%" y="38%" id="date" font-size="1.5rem"></text>
-            <text x="50%" y="43%" id="coapalette" font-size="1.3rem"></text>
+            <text x="50%" y="23%" font-size="1.3rem">This certifies that this piece of art is an original. This piece has been digitally signed by the artist.</text>
+            <text x="50%" y="26%" font-size="1.3rem">All copyright and reproduction rights to the piece are reserved.</text>
+            <text x="50%" y="33%" id="title" font-size="2.5rem" font-weight="bold" font-style="italic"></text>
+            <text x="50%" y="38%" id="date" font-size="1.5rem" font-family="monospace"></text>
+            <text x="50%" y="43%" id="coapalette" font-size="1.3rem" font-family="monospace"></text>
             <image x="35%" y="43%" height="15%" width="30%"
                 href="data:image/png;base64,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" />
             <text x="50%" y="53%">Matthew H Lorber</text>
             <rect x="10%" y="0%" width="80%" height="60%" fill="none" stroke="#000" />
         </g>
     </svg>
+
+    <!-- IMAGES -->
+    <div style="display:none">
+        <svg id="paw" style="fill:blanchedalmond" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M442.8,361.82C434,336.72,413.49,324,393.69,311.7c-17.23-10.71-33.5-20.83-44.14-39C320.22,222.37,304.11,192,256.06,192s-64.21,30.38-93.61,80.69c-10.65,18.21-27,28.35-44.25,39.08-19.8,12.31-40.27,25-49.1,50.05A78.06,78.06,0,0,0,64,390.11C64,430.85,96.45,464,132.4,464s83.31-18.13,123.76-18.13S343.31,464,379.71,464,448,430.85,448,390.11A78.3,78.3,0,0,0,442.8,361.82Z" />
+            <ellipse cx="72" cy="216" rx="56" ry="72" />
+            <ellipse cx="184" cy="120" rx="56" ry="72" />
+            <ellipse cx="328" cy="120" rx="56" ry="72" />
+            <ellipse cx="440" cy="216" rx="56" ry="72" />
+        </svg>
+    </div>
 
 </body>
 <script type="module" src="./assets/scripts/genart.js"></script>

@@ -8,6 +8,8 @@ import { molnar } from "./molnar.js";
 import { bebebe } from "./bebebe.js";
 import { boxy } from "./boxy.js";
 import { grid } from "./grid.js";
+// import { xoxo } from "./xoxo.js";
+// import { amimals } from "./amimals.js";
 
 !(function () {
 
@@ -86,13 +88,15 @@ import { grid } from "./grid.js";
 			case ("bebebe"): bebebe(hues); break;
 			case ("boxy"): boxy(hues); break;
 			case ("grid"): grid(hues); break;
+			// case ("amimals"): amimals(hues); break;
+			default: break;
 		}
 
 		let s = `${this.innerText} № ${Math.floor(Math.random() * 10000)}`;
 		let d = new Date().toLocaleDateString();
 		document.getElementById("title").innerHTML = s;
 		document.getElementById("date").innerHTML = d;
-		document.getElementById("coapalette").innerHTML = `colors(hex): ${hues.toString().toUpperCase()}`;
+		document.getElementById("coapalette").innerHTML = `COLORS: ${hues.toString().toUpperCase().split(",").join(", ").replaceAll("#","")}`;
 
 	}));
 

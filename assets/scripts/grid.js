@@ -28,7 +28,7 @@ export function grid(hues) {
 
 		// Call Shapes Drawing Function: makes an N x N grid with possible 2 x 2 or 3 x 3 subgrid in each cell
 		async function draw() {
-			for (let i = 0; i < N; i++) for (let j = 0; j < N; j++) { // outer & inner loops combined
+			for (let i = 0; i < N; i++) for (let j = 0; j < N; j++) { // traverse 2d 
 				let det = rn(3);
 				switch (det) {
 					case 0: shape("lg", i, j).then(cx.clearRect(0, 0, mw, mw)); break;
