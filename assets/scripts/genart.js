@@ -17,6 +17,7 @@ import { grid } from "./grid.js";
 
 	let lock = document.getElementById("lock");
 	let hues;
+	let s; // piece name and number
 
 	window.onload = function init() {
 		hues = ["rgb(35,57,68)", "rgb(244,242,191)", "rgb(143,137,125)", "rgb(182,170,146)", "rgb(208,196,172)"];
@@ -92,7 +93,7 @@ import { grid } from "./grid.js";
 			default: break;
 		}
 
-		let s = `${this.innerText} № ${Math.floor(Math.random() * 10000)}`;
+		s = `${this.innerText} № ${Math.floor(Math.random() * 10000)}`;
 		let d = new Date().toLocaleDateString();
 		document.getElementById("title").innerHTML = s;
 		document.getElementById("date").innerHTML = d;
@@ -103,11 +104,12 @@ import { grid } from "./grid.js";
 	// SAVE FUNCTION
 	document.getElementById("save").addEventListener("click", function () {
 
+		let t = `${s.replace(" № ", "-no-")}`;
 		let c = document.getElementById("c");
 		let type = document.getElementById("sel").value;
 		let ele = document.createElement("a");
 		document.body.appendChild(ele);
-		ele.download = `mlorber_genart.${type.toLowerCase()}`;
+		ele.download = `${t}.${type.toLowerCase()}`;
 		ele.href = c.toDataURL(`image/${type.toLowerCase()};base64`);
 		ele.click();
 		ele.remove();
@@ -117,7 +119,7 @@ import { grid } from "./grid.js";
 			let target = `data:image/svg+xml,${svg.replaceAll("\r", "").replaceAll("\t", "").replaceAll("\n", "").replaceAll('"', "'").replaceAll("<", "%3C").replaceAll(">", "%3E").replaceAll("#", "%23")}`;
 			let a = document.createElement("a");
 			a.href = target;
-			a.download = `COA.svg`;
+			a.download = `COA-${t}.svg`;
 			document.body.appendChild(a);
 			a.click();
 			a.remove();
